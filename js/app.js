@@ -14,10 +14,23 @@ $(".controls li").click(function () {
 });
 
 //When new color is pressed
+$("#revealColorSelect").click(function () {
   //Show color select or hide the color select
+  changeColor();
+  $("#colorSelect").toggle();
+});
+
+//Update the new color span
+function changeColor() {
+  var r = $("#red").val();
+  var g = $("#green").val();
+  var b = $("#blue").val();
+
+  $("#newColor").css("background-color", "rgb(" + r + "," + g + "," + b + ")");
+}
 
 //When color sliders change
-  //Update the new color span
+$("input[type=range]").change(changeColor).mousemove(changeColor);
 
 //When add color is pressed
   //Append the color to the controls ul
